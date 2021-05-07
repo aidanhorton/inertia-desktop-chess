@@ -17,3 +17,10 @@ C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.
 C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.Presentation\obj\Debug\netcoreapp3.1\InertiaChess.Presentation.dll
 C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.Presentation\obj\Debug\netcoreapp3.1\InertiaChess.Presentation.pdb
 C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.Presentation\obj\Debug\netcoreapp3.1\InertiaChess.Presentation.genruntimeconfig.cache
+C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.Presentation\bin\Debug\netcoreapp3.1\Microsoft.Xaml.Behaviors.dll
+C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.Presentation\bin\Debug\netcoreapp3.1\Prism.dll
+C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.Presentation\bin\Debug\netcoreapp3.1\Prism.Unity.Wpf.dll
+C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.Presentation\bin\Debug\netcoreapp3.1\Prism.Wpf.dll
+C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.Presentation\bin\Debug\netcoreapp3.1\Unity.Abstractions.dll
+C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.Presentation\bin\Debug\netcoreapp3.1\Unity.Container.dll
+C:\Users\aidan\Documents\GitHub\inertia-desktop-chess\InertiaChess\InertiaChess.Presentation\obj\Debug\netcoreapp3.1\InertiaChess.Presentation.csproj.CopyComplete

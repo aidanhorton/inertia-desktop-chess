@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "bId7nnwo+W3p3I2arQ0LfcZegVGwxc59o+X9We8mVJmF6C4a3uAqy0LevMJhL1ZriliQm+ONR102nFrojE2Vaw==",
+  "dgSpecHash": "uJMWminIg69M9cHKT4urHHCeYLhTPvSdE3TkSsEr4v00CYJWqzc/TSBeZF/z74Otbg8p897aKAfZyK13Ojrz5A==",
   "success": true,
   "projectFilePath": "C:\\Users\\aidan\\Documents\\GitHub\\inertia-desktop-chess\\InertiaChess\\InertiaChess.Presentation\\InertiaChess.Presentation.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\aidan\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\aidan\\.nuget\\packages\\prism.core\\8.0.0.1909\\prism.core.8.0.0.1909.nupkg.sha512",
+    "C:\\Users\\aidan\\.nuget\\packages\\prism.unity\\8.0.0.1909\\prism.unity.8.0.0.1909.nupkg.sha512",
+    "C:\\Users\\aidan\\.nuget\\packages\\prism.wpf\\8.0.0.1909\\prism.wpf.8.0.0.1909.nupkg.sha512",
+    "C:\\Users\\aidan\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\aidan\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.2\\system.threading.tasks.extensions.4.5.2.nupkg.sha512",
+    "C:\\Users\\aidan\\.nuget\\packages\\unity.abstractions\\5.11.6\\unity.abstractions.5.11.6.nupkg.sha512",
+    "C:\\Users\\aidan\\.nuget\\packages\\unity.container\\5.11.8\\unity.container.5.11.8.nupkg.sha512"
+  ],
   "logs": []
 }

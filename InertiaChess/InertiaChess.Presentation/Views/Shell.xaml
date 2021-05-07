@@ -7,8 +7,50 @@
         xmlns:local="clr-namespace:InertiaChess.Presentation"
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True"
+        ResizeMode="NoResize"
+        WindowStyle="None"
         Title="Inertia Chess" Height="450" Width="800">
-    <Grid>
 
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="32" />
+    </WindowChrome.WindowChrome>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <DockPanel Background="#202225" Grid.Row="0">
+            <TextBlock Text="INERTIA CHESS" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="White" Margin="10 0" DockPanel.Dock="Left">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="TextElement.FontFamily" Value="fonts/#Teko-Bold"/>
+                    </Style>                    
+                </TextBlock.Style>
+            </TextBlock>
+
+            <Button Content="X" FontSize="16" FontWeight="Bold" Foreground="White" Width="32" HorizontalAlignment="Right" DockPanel.Dock="Right" WindowChrome.IsHitTestVisibleInChrome="True">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#202225" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </DockPanel>
     </Grid>
 </Window>

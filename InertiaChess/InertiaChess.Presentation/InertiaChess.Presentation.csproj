@@ -7,8 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Teko-Bold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Teko-Bold.ttf" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,9 @@
-﻿<Application x:Class="InertiaChess.Presentation.App"
+﻿<prism:PrismApplication x:Class="InertiaChess.Presentation.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:InertiaChess.Presentation"
+             xmlns:prism="http://prismlibrary.com/"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
+    <Application.Resources>         
     </Application.Resources>
-</Application>
+</prism:PrismApplication>

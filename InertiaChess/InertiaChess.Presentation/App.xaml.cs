@@ -12,7 +12,7 @@ namespace InertiaChess.Presentation
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<Shell>();
+            return this.Container.Resolve<Shell>();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

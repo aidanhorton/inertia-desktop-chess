@@ -9,7 +9,7 @@ namespace InertiaChess.Presentation.Views
     {
         public Shell()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

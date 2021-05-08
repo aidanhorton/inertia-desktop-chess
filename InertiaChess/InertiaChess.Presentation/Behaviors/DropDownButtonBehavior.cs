@@ -10,34 +10,23 @@ namespace InertiaChess.Presentation.Behaviors
         private ToggleButton button;
         private bool isContextMenuOpen;
 
-        protected override void OnAttached()
-        {
-            base.OnAttached();
-            AssociatedObject.AddHandler(ToggleButton.ClickEvent, new RoutedEventHandler(AssociatedObject_Click), true);
-        }
-
-        void AssociatedObject_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void AssociatedObject_Click(object sender, RoutedEventArgs e)
         {
             this.button = sender as ToggleButton;
-            if (this.button != null && this.button.ContextMenu != null)
-            {
-                if (!isContextMenuOpen)
-                {
-                    // Add handler to detect when the ContextMenu closes
-                    this.button.ContextMenu.AddHandler(ContextMenu.ClosedEvent, new RoutedEventHandler(ContextMenu_Closed), true);
-                    // If there is a drop-down assigned to this button, then position and display it 
-                    this.button.ContextMenu.PlacementTarget = this.button;
-                    this.button.ContextMenu.Placement = PlacementMode.Bottom;
-                    this.button.ContextMenu.IsOpen = true;
-                    isContextMenuOpen = true;
-                }
-            }
-        }
+            if (this.button == null || this.button.ContextMenu == null) return;
 
-        protected override void OnDetaching()
-        {
-            base.OnDetaching();
-            AssociatedObject.RemoveHandler(ToggleButton.ClickEvent, new RoutedEventHandler(AssociatedObject_Click));
+            if (!this.isContextMenuOpen)
+            {
+                // Add handler to detect when the ContextMenu closes
+                this.button.ContextMenu.AddHandler(ContextMenu.ClosedEvent, new RoutedEventHandler(this.ContextMenu_Closed), true);
+
+                // If there is a drop-down assigned to this button, then position and display it 
+                this.button.ContextMenu.PlacementTarget = this.button;
+                this.button.ContextMenu.Placement = PlacementMode.Bottom;
+                this.button.ContextMenu.IsOpen = true;
+
+                this.isContextMenuOpen = true;
+            }
         }
 
         private void ContextMenu_Closed(object sender, RoutedEventArgs e)
@@ -47,12 +36,24 @@ namespace InertiaChess.Presentation.Behaviors
                 this.button.IsChecked = false;
             }
 
-            isContextMenuOpen = false;
-            var contextMenu = sender as ContextMenu;
-            if (contextMenu != null)
+            this.isContextMenuOpen = false;
+
+            if (sender is ContextMenu contextMenu)
             {
-                contextMenu.RemoveHandler(ContextMenu.ClosedEvent, new RoutedEventHandler(ContextMenu_Closed));
+                contextMenu.RemoveHandler(ContextMenu.ClosedEvent, new RoutedEventHandler(this.ContextMenu_Closed));
             }
+        }
+
+        protected override void OnAttached()
+        {
+            base.OnAttached();
+            this.AssociatedObject.AddHandler(ToggleButton.ClickEvent, new RoutedEventHandler(this.AssociatedObject_Click), true);
+        }
+
+        protected override void OnDetaching()
+        {
+            base.OnDetaching();
+            this.AssociatedObject.RemoveHandler(ToggleButton.ClickEvent, new RoutedEventHandler(this.AssociatedObject_Click));
         }
     }
 }

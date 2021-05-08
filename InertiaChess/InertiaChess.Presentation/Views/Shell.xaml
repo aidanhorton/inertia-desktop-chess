@@ -22,7 +22,7 @@
         <ResourceDictionary Source="..\ResourceDictionary.xaml" />
     </Window.Resources>
 
-    <Border CornerRadius="15" BorderThickness="2" BorderBrush="#9e9e9e">
+    <Border CornerRadius="15" BorderThickness="1" BorderBrush="#9e9e9e">
         <Border CornerRadius="15">
             <Border.OpacityMask>
                 <VisualBrush>

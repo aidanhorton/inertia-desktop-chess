@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace InertiaChess.Presentation
+namespace InertiaChess.Presentation.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

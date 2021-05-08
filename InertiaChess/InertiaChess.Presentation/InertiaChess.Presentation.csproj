@@ -8,6 +8,30 @@
 
   <ItemGroup>
     <None Remove="Fonts\Teko-Bold.ttf" />
+    <None Remove="Images\Bishop_Black.png" />
+    <None Remove="Images\Bishop_White.png" />
+    <None Remove="Images\Close-Hover.png" />
+    <None Remove="Images\Close-Pressed.png" />
+    <None Remove="Images\Close.png" />
+    <None Remove="Images\King_Black.png" />
+    <None Remove="Images\King_White.png" />
+    <None Remove="Images\Knight_Black.png" />
+    <None Remove="Images\Knight_White.png" />
+    <None Remove="Images\Maximize-Hover.png" />
+    <None Remove="Images\Maximize-Pressed.png" />
+    <None Remove="Images\Maximize.png" />
+    <None Remove="Images\Minimize-Hover.png" />
+    <None Remove="Images\Minimize-Pressed.png" />
+    <None Remove="Images\Minimize.png" />
+    <None Remove="Images\Pawn_Black.png" />
+    <None Remove="Images\Pawn_White.png" />
+    <None Remove="Images\Queen_Black.png" />
+    <None Remove="Images\Queen_White.png" />
+    <None Remove="Images\Restore-Hover.png" />
+    <None Remove="Images\Restore-Pressed.png" />
+    <None Remove="Images\Restore.png" />
+    <None Remove="Images\Rook_Black.png" />
+    <None Remove="Images\Rook_White.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +41,20 @@
 
   <ItemGroup>
     <Resource Include="Fonts\Teko-Bold.ttf" />
+    <Resource Include="Images\Bishop_Black.png" />
+    <Resource Include="Images\Bishop_White.png" />
+    <Resource Include="Images\Close.png" />
+    <Resource Include="Images\King_Black.png" />
+    <Resource Include="Images\King_White.png" />
+    <Resource Include="Images\Knight_Black.png" />
+    <Resource Include="Images\Knight_White.png" />
+    <Resource Include="Images\Minimize.png" />
+    <Resource Include="Images\Pawn_Black.png" />
+    <Resource Include="Images\Pawn_White.png" />
+    <Resource Include="Images\Queen_Black.png" />
+    <Resource Include="Images\Queen_White.png" />
+    <Resource Include="Images\Rook_Black.png" />
+    <Resource Include="Images\Rook_White.png" />
   </ItemGroup>
 
 </Project>

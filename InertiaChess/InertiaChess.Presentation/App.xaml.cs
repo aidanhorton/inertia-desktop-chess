@@ -1,4 +1,5 @@
-﻿using Prism.Ioc;
+﻿using InertiaChess.Presentation.Views;
+using Prism.Ioc;
 using Prism.Unity;
 using System.Windows;
 

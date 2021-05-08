@@ -11,7 +11,7 @@ namespace InertiaChess.Presentation.ViewModels
 
         public ShellViewModel()
         {
-            this.MinimizeCommand = new DelegateCommand(this.MinimizeApplication);
+            this.MinimizeCommand = new DelegateCommand(() => this.WindowState = WindowState.Minimized);
             this.CloseCommand = new DelegateCommand(() => Application.Current.Shutdown());
         }
 
@@ -22,11 +22,6 @@ namespace InertiaChess.Presentation.ViewModels
         {
             get => windowState;
             set => this.SetProperty(ref windowState, value);
-        }
-
-        private void MinimizeApplication()
-        {
-            this.WindowState = WindowState.Minimized;
         }
     }
 }

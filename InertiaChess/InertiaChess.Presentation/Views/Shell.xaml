@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/"
-        xmlns:local="clr-namespace:InertiaChess.Presentation"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:behaviors="clr-namespace:InertiaChess.Presentation.Behaviors"
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True"
         ResizeMode="NoResize"
@@ -48,6 +49,52 @@
 
                 <DockPanel Grid.Row="0" Background="#24292E">
                     <TextBlock Text="♖" Foreground="White" FontSize="24" VerticalAlignment="Center" Margin="8 2 2 3" />
+
+                    <!-- Title bar dropdown buttons -->
+                    <ToggleButton Content="File" Style="{StaticResource TitleBarDropdown}" Width="40" WindowChrome.IsHitTestVisibleInChrome="True" Margin="5 0 0 0">
+                        <i:Interaction.Behaviors>
+                            <behaviors:DropDownButtonBehavior/>
+                        </i:Interaction.Behaviors>
+
+                        <ToggleButton.ContextMenu>
+                            <ContextMenu Style="{StaticResource FlatContextMenu}">
+                                <MenuItem Foreground="Snow" Header="First file" />
+                                <MenuItem Foreground="Snow" Header="Second file" />
+                                <MenuItem Foreground="Snow" Header="Third file" />
+                                <MenuItem Foreground="Snow" Header="Fourth file" />
+                            </ContextMenu>
+                        </ToggleButton.ContextMenu>
+                    </ToggleButton>
+
+                    <ToggleButton Content="Game" Style="{StaticResource TitleBarDropdown}" Width="55" WindowChrome.IsHitTestVisibleInChrome="True">
+                        <i:Interaction.Behaviors>
+                            <behaviors:DropDownButtonBehavior/>
+                        </i:Interaction.Behaviors>
+
+                        <ToggleButton.ContextMenu>
+                            <ContextMenu Style="{StaticResource FlatContextMenu}">
+                                <MenuItem Foreground="Snow" Header="First file" />
+                                <MenuItem Foreground="Snow" Header="Second file" />
+                                <MenuItem Foreground="Snow" Header="Third file" />
+                                <MenuItem Foreground="Snow" Header="Fourth file" />
+                            </ContextMenu>
+                        </ToggleButton.ContextMenu>
+                    </ToggleButton>
+
+                    <ToggleButton Content="Difficulty" Style="{StaticResource TitleBarDropdown}" Width="70" WindowChrome.IsHitTestVisibleInChrome="True">
+                        <i:Interaction.Behaviors>
+                            <behaviors:DropDownButtonBehavior/>
+                        </i:Interaction.Behaviors>
+
+                        <ToggleButton.ContextMenu>
+                            <ContextMenu Style="{StaticResource FlatContextMenu}">
+                                <MenuItem Foreground="Snow" Header="First file"/>
+                                <MenuItem Foreground="Snow" Header="Second file"/>
+                                <MenuItem Foreground="Snow" Header="Third file"/>
+                                <MenuItem Foreground="Snow" Header="Fourth file"/>
+                            </ContextMenu>
+                        </ToggleButton.ContextMenu>
+                    </ToggleButton>
 
                     <!-- Title bar buttons -->
                     <Button Style="{StaticResource CloseButton}" Command="{Binding CloseCommand}" DockPanel.Dock="Right" WindowChrome.IsHitTestVisibleInChrome="True" />

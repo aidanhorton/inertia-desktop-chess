@@ -22,7 +22,11 @@
         <ResourceDictionary Source="..\ResourceDictionary.xaml" />
     </Window.Resources>
 
-    <Border CornerRadius="15" BorderThickness="1" BorderBrush="#9e9e9e">
+    <Border CornerRadius="15" BorderThickness="0" BorderBrush="#9e9e9e" Margin="5">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="7" />
+        </Border.Effect>
+        
         <Border CornerRadius="15">
             <Border.OpacityMask>
                 <VisualBrush>
@@ -43,7 +47,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Row="0" Background="#24292E">
-                    <Image Source="/InertiaChess.Presentation;component/Images/Pawn_White.png" Margin="4 2 2 2" />
+                    <TextBlock Text="♖" Foreground="White" FontSize="24" VerticalAlignment="Center" Margin="8 2 2 3" />
 
                     <!-- Title bar buttons -->
                     <Button Style="{StaticResource CloseButton}" Command="{Binding CloseCommand}" DockPanel.Dock="Right" WindowChrome.IsHitTestVisibleInChrome="True" />

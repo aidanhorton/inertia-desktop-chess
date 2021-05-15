@@ -58,4 +58,8 @@
     <Resource Include="Images\Rook_White.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Events\" />
+  </ItemGroup>
+
 </Project>

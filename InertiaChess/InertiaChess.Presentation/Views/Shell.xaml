@@ -6,6 +6,7 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:behaviors="clr-namespace:InertiaChess.Presentation.Behaviors"
+        xmlns:local="clr-namespace:InertiaChess.Presentation.Views"
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True"
         ResizeMode="NoResize"
@@ -53,7 +54,7 @@
                     <!-- Title bar dropdown buttons -->
                     <ToggleButton Content="File" Style="{StaticResource TitleBarDropdown}" Width="40" WindowChrome.IsHitTestVisibleInChrome="True" Margin="5 0 0 0">
                         <i:Interaction.Behaviors>
-                            <behaviors:DropDownButtonBehavior/>
+                            <behaviors:DropDownButtonBehavior />
                         </i:Interaction.Behaviors>
 
                         <ToggleButton.ContextMenu>
@@ -102,7 +103,14 @@
                 </DockPanel>
 
                 <Grid Grid.Row="1" Background="#1D2125">
-                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <local:ChessBoard Grid.Column="0" HorizontalAlignment="Left" Margin="7 0 0 0" />
+                    </Grid>
                 </Grid>
             </Grid>
         </Border>

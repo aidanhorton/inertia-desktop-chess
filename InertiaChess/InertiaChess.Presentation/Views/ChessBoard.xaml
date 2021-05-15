@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="InertiaChess.Presentation.Views.ChessBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Width="500" Height="500">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="..\ResourceDictionary.xaml" />
+    </UserControl.Resources>
+
+    <Grid>
+        <ItemsControl ItemsSource="{Binding Tiles}" Margin="20">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="8" Rows="8" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl>
+                        <!--<Path Data="{Binding PieceShape}" Fill="{Binding PieceColor}" />-->
+                        <ToggleButton Background="{Binding TileColor}" Command="{Binding TilePressedCommand}" IsChecked="{Binding IsTileSelected}" Style="{StaticResource FlatTileButton}" />
+                    </ContentControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

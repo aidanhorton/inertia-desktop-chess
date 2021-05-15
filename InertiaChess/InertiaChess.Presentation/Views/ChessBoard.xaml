@@ -23,7 +23,7 @@
                 <DataTemplate>
                     <ContentControl>
                         <!--<Path Data="{Binding PieceShape}" Fill="{Binding PieceColor}" />-->
-                        <ToggleButton Background="{Binding TileColor}" Command="{Binding TilePressedCommand}" IsChecked="{Binding IsTileSelected}" Style="{StaticResource FlatTileButton}" />
+                        <ToggleButton Command="{Binding TilePressedCommand}" IsChecked="{Binding IsTileSelected}" Style="{StaticResource FlatTileButton}" />
                     </ContentControl>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

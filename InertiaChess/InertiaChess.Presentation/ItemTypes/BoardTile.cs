@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using InertiaChess.Presentation.Enums;
+using Prism.Commands;
 using Prism.Mvvm;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -11,12 +12,19 @@ namespace InertiaChess.Presentation.ItemTypes
     {
         public event TilePressed TilePressedEvent;
 
+        private readonly Brush lightColor = new SolidColorBrush(Color.FromRgb(232, 235, 239));
+        private readonly Brush darkColor = new SolidColorBrush(Color.FromRgb(125, 135, 150));
+        private readonly Brush lightSelectionColor = new SolidColorBrush(Color.FromRgb(242, 255, 219));
+        private readonly Brush darkSelectionColor = new SolidColorBrush(Color.FromRgb(135, 155, 130));
+
         private Brush tileColor;
+        private Brush selectionColor;
         private bool isTileSelected;
 
-        public BoardTile(Brush tileColor)
+        public BoardTile(TileType tileType)
         {
-            this.TileColor = tileColor;
+            this.TileColor = tileType == TileType.Light ? lightColor : darkColor;
+            this.SelectionColor = tileType == TileType.Light ? lightSelectionColor : darkSelectionColor;
 
             this.TilePressedCommand = new DelegateCommand(this.OnTilePressed);
         }
@@ -27,6 +35,12 @@ namespace InertiaChess.Presentation.ItemTypes
         {
             get => this.tileColor;
             set => this.SetProperty(ref this.tileColor, value);
+        }
+
+        public Brush SelectionColor 
+        {
+            get => this.selectionColor;
+            set => this.SetProperty(ref this.selectionColor, value);
         }
 
         public bool IsTileSelected

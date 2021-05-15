@@ -1,7 +1,7 @@
-﻿using InertiaChess.Presentation.ItemTypes;
+﻿using InertiaChess.Presentation.Enums;
+using InertiaChess.Presentation.ItemTypes;
 using Prism.Mvvm;
 using System.Collections.Generic;
-using System.Windows.Media;
 
 namespace InertiaChess.Presentation.ViewModels
 {
@@ -18,7 +18,7 @@ namespace InertiaChess.Presentation.ViewModels
         {
             for (var i = 0; i < 64; i++)
             {
-                var tile = new BoardTile(new SolidColorBrush(i % 2 == (i / 8) % 2 ? Color.FromRgb(232, 235, 239) : Color.FromRgb(125, 135, 150)));
+                var tile = new BoardTile(i % 2 == (i / 8) % 2 ? TileType.Light : TileType.Dark);
                 this.Tiles.Add(tile);
 
                 tile.TilePressedEvent += this.TilePressed;

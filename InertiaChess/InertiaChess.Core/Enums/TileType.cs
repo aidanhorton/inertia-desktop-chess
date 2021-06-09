@@ -1,4 +1,4 @@
-﻿namespace InertiaChess.Presentation.Enums
+﻿namespace InertiaChess.Core.Enums
 {
     public enum TileType
     {

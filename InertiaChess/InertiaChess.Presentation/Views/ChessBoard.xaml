@@ -23,7 +23,9 @@
                 <DataTemplate>
                     <ContentControl>
                         <!--<Path Data="{Binding PieceShape}" Fill="{Binding PieceColor}" />-->
-                        <ToggleButton Command="{Binding TilePressedCommand}" IsChecked="{Binding IsTileSelected}" Style="{StaticResource FlatTileButton}" />
+                        <ToggleButton Command="{Binding TilePressedCommand}" IsChecked="{Binding IsTileSelected}" Style="{StaticResource FlatTileButton}">
+                            <Image Source="{Binding PieceImage}" />
+                        </ToggleButton>
                     </ContentControl>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

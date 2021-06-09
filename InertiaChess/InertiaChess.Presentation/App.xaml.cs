@@ -1,4 +1,6 @@
-﻿using InertiaChess.Presentation.Views;
+﻿using InertiaChess.Logic.Services;
+using InertiaChess.Presentation.Factories;
+using InertiaChess.Presentation.Views;
 using Prism.Ioc;
 using Prism.Unity;
 using System.Windows;
@@ -18,6 +20,8 @@ namespace InertiaChess.Presentation
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Register types here.
+            containerRegistry.Register<IPieceService, PieceService>();
+            containerRegistry.Register<IBoardTileFactory, BoardTileFactory>();
         }
     }
 }

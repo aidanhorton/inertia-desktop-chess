@@ -1,4 +1,5 @@
-﻿using InertiaChess.Presentation.Enums;
+﻿using InertiaChess.Core.Enums;
+using InertiaChess.Logic.Services;
 using Prism.Commands;
 using Prism.Mvvm;
 using System.Windows.Input;
@@ -17,19 +18,32 @@ namespace InertiaChess.Presentation.ItemTypes
         private readonly Brush lightSelectionColor = new SolidColorBrush(Color.FromRgb(242, 255, 219));
         private readonly Brush darkSelectionColor = new SolidColorBrush(Color.FromRgb(135, 155, 130));
 
+        private readonly IPieceService pieceService;
+
+        private string pieceImage;
         private Brush tileColor;
         private Brush selectionColor;
         private bool isTileSelected;
 
-        public BoardTile(TileType tileType)
+        public BoardTile(TileType tileType, IPieceService pieceService)
         {
             this.TileColor = tileType == TileType.Light ? lightColor : darkColor;
             this.SelectionColor = tileType == TileType.Light ? lightSelectionColor : darkSelectionColor;
+
+            this.pieceService = pieceService;
+
+            this.PieceImage = this.pieceService.GetImagePathFromPieceType(PieceType.None, true);
 
             this.TilePressedCommand = new DelegateCommand(this.OnTilePressed);
         }
 
         public ICommand TilePressedCommand { get; }
+
+        public string PieceImage
+        {
+            get => this.pieceImage;
+            set => this.SetProperty(ref this.pieceImage, value);
+        }
 
         public Brush TileColor 
         {

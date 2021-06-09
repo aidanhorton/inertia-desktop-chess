@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InertiaChess.Presentation", "InertiaChess.Presentation\InertiaChess.Presentation.csproj", "{76064D56-AAB3-430C-82B3-20056377FC6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InertiaChess.Logic", "InertiaChess.Logic\InertiaChess.Logic.csproj", "{C20431FC-41BA-4D4E-ADE4-9380A37927D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InertiaChess.Core", "InertiaChess.Core\InertiaChess.Core.csproj", "{D08B7D72-63EC-4DF5-B8A9-457D6BFE2AC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{76064D56-AAB3-430C-82B3-20056377FC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76064D56-AAB3-430C-82B3-20056377FC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76064D56-AAB3-430C-82B3-20056377FC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C20431FC-41BA-4D4E-ADE4-9380A37927D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C20431FC-41BA-4D4E-ADE4-9380A37927D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C20431FC-41BA-4D4E-ADE4-9380A37927D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C20431FC-41BA-4D4E-ADE4-9380A37927D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D08B7D72-63EC-4DF5-B8A9-457D6BFE2AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D08B7D72-63EC-4DF5-B8A9-457D6BFE2AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D08B7D72-63EC-4DF5-B8A9-457D6BFE2AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D08B7D72-63EC-4DF5-B8A9-457D6BFE2AC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

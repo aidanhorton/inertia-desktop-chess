@@ -41,6 +41,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\InertiaChess.Core\InertiaChess.Core.csproj" />
+    <ProjectReference Include="..\InertiaChess.Logic\InertiaChess.Logic.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Fonts\Teko-Bold.ttf" />
     <Resource Include="Images\Bishop_Black.png" />
     <Resource Include="Images\Bishop_White.png" />

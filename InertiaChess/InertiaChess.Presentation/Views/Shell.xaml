@@ -24,9 +24,9 @@
         <ResourceDictionary Source="..\ResourceDictionary.xaml" />
     </Window.Resources>
 
-    <Border CornerRadius="15" BorderThickness="0" BorderBrush="#9e9e9e" Margin="5">
+    <Border CornerRadius="15" BorderThickness="0" BorderBrush="#9e9e9e" Margin="3">
         <Border.Effect>
-            <DropShadowEffect ShadowDepth="0" BlurRadius="7" />
+            <DropShadowEffect ShadowDepth="0" BlurRadius="3" />
         </Border.Effect>
         
         <Border CornerRadius="15">

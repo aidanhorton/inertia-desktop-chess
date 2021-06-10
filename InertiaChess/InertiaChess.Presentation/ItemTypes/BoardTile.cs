@@ -25,14 +25,14 @@ namespace InertiaChess.Presentation.ItemTypes
         private Brush selectionColor;
         private bool isTileSelected;
 
-        public BoardTile(TileType tileType, IPieceService pieceService)
+        public BoardTile(TileType tileType, PieceType startingPiece, IPieceService pieceService)
         {
             this.TileColor = tileType == TileType.Light ? lightColor : darkColor;
             this.SelectionColor = tileType == TileType.Light ? lightSelectionColor : darkSelectionColor;
 
             this.pieceService = pieceService;
 
-            this.PieceImage = this.pieceService.GetImagePathFromPieceType(PieceType.None, true);
+            this.PieceImage = this.pieceService.GetImagePathFromPieceType(startingPiece);
 
             this.TilePressedCommand = new DelegateCommand(this.OnTilePressed);
         }

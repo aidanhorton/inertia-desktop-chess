@@ -13,9 +13,9 @@ namespace InertiaChess.Presentation.Factories
             this.pieceService = pieceService;
         }
 
-        public BoardTile CreateTile(TileType tileType)
+        public BoardTile CreateTile(TileType tileType, PieceType startingPiece)
         {
-            return new BoardTile(tileType, this.pieceService);
+            return new BoardTile(tileType, startingPiece, this.pieceService);
         }
     }
 }

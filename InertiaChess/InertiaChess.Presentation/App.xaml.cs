@@ -22,6 +22,7 @@ namespace InertiaChess.Presentation
             // Register types here.
             containerRegistry.Register<IPieceService, PieceService>();
             containerRegistry.Register<IBoardTileFactory, BoardTileFactory>();
+            containerRegistry.Register<IFenInterpretationService, FenInterpretationService>();
         }
     }
 }

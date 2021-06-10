@@ -5,6 +5,6 @@ namespace InertiaChess.Presentation.Factories
 {
     public interface IBoardTileFactory
     {
-        public BoardTile CreateTile(TileType tileType);
+        public BoardTile CreateTile(TileType tileType, PieceType pieceType);
     }
 }

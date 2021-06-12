@@ -16,7 +16,10 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{Binding SelectionColor}"/>
+                <Setter Property="Background" Value="{Binding HoverColor}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="{Binding SelectionColor}" />
             </Trigger>
         </Style.Triggers>
     </Style>

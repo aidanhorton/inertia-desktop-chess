@@ -12,6 +12,11 @@ namespace InertiaChess.Presentation.ViewModels
         private readonly IBoardTileFactory boardTileFactory;
         private readonly IFenInterpretationService interpreter;
 
+        private BoardTile pressedTile;
+
+        private PieceType blackPieces = PieceType.BlackKing | PieceType.BlackQueen | PieceType.BlackRook | PieceType.BlackBishop | PieceType.BlackKnight | PieceType.BlackPawn;
+        private PieceType whitePieces = PieceType.WhiteKing | PieceType.WhiteQueen | PieceType.WhiteRook | PieceType.WhiteBishop | PieceType.WhiteKnight | PieceType.WhitePawn;
+
         public ChessBoardViewModel(IBoardTileFactory boardTileFactory, IFenInterpretationService fenInterpreter)
         {
             this.boardTileFactory = boardTileFactory;
@@ -35,13 +40,42 @@ namespace InertiaChess.Presentation.ViewModels
             }
         }
 
-        private void TilePressed(BoardTile pressedTile)
+        private void TilePressed(BoardTile newPressedTile)
+        {
+            if (this.whitePieces.HasFlag(newPressedTile.PieceType))
+            {
+                this.pressedTile = newPressedTile;
+
+                this.DeselectNonPressedTiles();
+            }
+            else if ((newPressedTile.PieceType == PieceType.None || this.blackPieces.HasFlag(newPressedTile.PieceType)) && this.pressedTile != null)
+            {
+                // Potentially valid move.
+
+                newPressedTile.PieceType = this.pressedTile.PieceType;
+                this.pressedTile.PieceType = PieceType.None;
+
+                this.pressedTile = null;
+            }
+            else
+            {
+                this.pressedTile = null;
+
+                this.DeselectNonPressedTiles();
+            }            
+        }
+
+        private void DeselectNonPressedTiles()
         {
             foreach (var tile in this.Tiles)
             {
-                if (tile != pressedTile)
+                if (tile != this.pressedTile)
                 {
                     tile.IsTileSelected = false;
+                }
+                else
+                {
+                    tile.IsTileSelected = true;
                 }
             }
         }

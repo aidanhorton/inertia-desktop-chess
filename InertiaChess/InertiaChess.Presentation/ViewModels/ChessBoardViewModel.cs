@@ -4,11 +4,14 @@ using InertiaChess.Presentation.Factories;
 using InertiaChess.Presentation.ItemTypes;
 using Prism.Mvvm;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace InertiaChess.Presentation.ViewModels
 {
     public class ChessBoardViewModel : BindableBase
     {
+        private readonly IMinimaxService minimaxService;
         private readonly IBoardTileFactory boardTileFactory;
         private readonly IFenInterpretationService interpreter;
 
@@ -17,8 +20,11 @@ namespace InertiaChess.Presentation.ViewModels
         private PieceType blackPieces = PieceType.BlackKing | PieceType.BlackQueen | PieceType.BlackRook | PieceType.BlackBishop | PieceType.BlackKnight | PieceType.BlackPawn;
         private PieceType whitePieces = PieceType.WhiteKing | PieceType.WhiteQueen | PieceType.WhiteRook | PieceType.WhiteBishop | PieceType.WhiteKnight | PieceType.WhitePawn;
 
-        public ChessBoardViewModel(IBoardTileFactory boardTileFactory, IFenInterpretationService fenInterpreter)
+        private bool canSelectPieces = true;
+
+        public ChessBoardViewModel(IMinimaxService minimaxService, IBoardTileFactory boardTileFactory, IFenInterpretationService fenInterpreter)
         {
+            this.minimaxService = minimaxService;
             this.boardTileFactory = boardTileFactory;
             this.interpreter = fenInterpreter;
 
@@ -36,12 +42,18 @@ namespace InertiaChess.Presentation.ViewModels
                 var tile = this.boardTileFactory.CreateTile(i % 2 == (i / 8) % 2 ? TileType.Light : TileType.Dark, pieces[i]);
                 this.Tiles.Add(tile);
 
-                tile.TilePressedEvent += this.TilePressed;
+                tile.TilePressedEvent += (eventArgs) => Task.Run(() => this.TilePressed(eventArgs));
             }
         }
 
-        private void TilePressed(BoardTile newPressedTile)
+        private async Task TilePressed(BoardTile newPressedTile)
         {
+            if (!this.canSelectPieces)
+            {
+                newPressedTile.IsTileSelected = false;
+                return;
+            }
+
             if (this.whitePieces.HasFlag(newPressedTile.PieceType))
             {
                 this.pressedTile = newPressedTile;
@@ -51,11 +63,12 @@ namespace InertiaChess.Presentation.ViewModels
             else if ((newPressedTile.PieceType == PieceType.None || this.blackPieces.HasFlag(newPressedTile.PieceType)) && this.pressedTile != null)
             {
                 // Potentially valid move.
+                this.canSelectPieces = false;
 
-                newPressedTile.PieceType = this.pressedTile.PieceType;
-                this.pressedTile.PieceType = PieceType.None;
+                await this.HandleRequestedMove(this.pressedTile, newPressedTile);
 
                 this.pressedTile = null;
+                this.canSelectPieces = true;
             }
             else
             {
@@ -78,6 +91,21 @@ namespace InertiaChess.Presentation.ViewModels
                     tile.IsTileSelected = true;
                 }
             }
+        }
+
+        private async Task HandleRequestedMove(BoardTile startingLocation, BoardTile destination)
+        {
+            destination.PieceType = startingLocation.PieceType;
+            startingLocation.PieceType = PieceType.None;
+
+            await this.minimaxService.CalculateMove(this.LightweightBoardRepresentation());
+
+            // Perform move here. Do I need to perform any checks?
+        }
+
+        private PieceType[] LightweightBoardRepresentation()
+        {
+            return this.Tiles.Select(tile => tile.PieceType).ToArray();
         }
     }
 }

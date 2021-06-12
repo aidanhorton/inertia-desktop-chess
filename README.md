@@ -1,5 +1,14 @@
 # inertia-desktop-chess
-A relatively simple desktop chess engine
+A WIP simplistic AI chess engine.
+
+Using MiniMax algorithm with Alpha-Beta pruning for the AI.
+
+
+
+**Currently non-functioning, in prototyping**
 
 Todo:
-- Add GitHub desktop style window chrome
+- Add the ability to move pieces on the board
+- Add basic MiniMax
+- Setup basic game system
+- Improve MiniMax.

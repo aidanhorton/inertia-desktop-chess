@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="InertiaChess.Presentation.Views.GameLog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InertiaChess.Presentation.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d"
+             prism:ViewModelLocator.AutoWireViewModel="True" 
+             d:DesignHeight="200" d:DesignWidth="150">
+
+    <ListBox ItemsSource="{Binding MessageLog}" Background="#24292E" Focusable="False">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding}" Foreground="#CCCCCC" />
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+</UserControl>

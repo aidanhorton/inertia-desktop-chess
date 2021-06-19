@@ -14,6 +14,7 @@ namespace InertiaChess.Presentation.ViewModels
         private readonly IMinimaxService minimaxService;
         private readonly IBoardTileFactory boardTileFactory;
         private readonly IFenInterpretationService interpreter;
+        private readonly ILoggingService loggingService;
 
         private BoardTile pressedTile;
 
@@ -22,11 +23,12 @@ namespace InertiaChess.Presentation.ViewModels
 
         private bool canSelectPieces = true;
 
-        public ChessBoardViewModel(IMinimaxService minimaxService, IBoardTileFactory boardTileFactory, IFenInterpretationService fenInterpreter)
+        public ChessBoardViewModel(IMinimaxService minimaxService, IBoardTileFactory boardTileFactory, IFenInterpretationService fenInterpreter, ILoggingService loggingService)
         {
             this.minimaxService = minimaxService;
             this.boardTileFactory = boardTileFactory;
             this.interpreter = fenInterpreter;
+            this.loggingService = loggingService;
 
             this.CreateTiles();
         }
@@ -98,7 +100,11 @@ namespace InertiaChess.Presentation.ViewModels
             destination.PieceType = startingLocation.PieceType;
             startingLocation.PieceType = PieceType.None;
 
+            this.loggingService.Log("Player pieces moved!");
+
             await this.minimaxService.CalculateMove(this.LightweightBoardRepresentation());
+
+            this.loggingService.Log("AI piece calculated!");
 
             // Perform move here. Do I need to perform any checks?
         }

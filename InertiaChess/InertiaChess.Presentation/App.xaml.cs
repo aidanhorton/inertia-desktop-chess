@@ -24,6 +24,8 @@ namespace InertiaChess.Presentation
             containerRegistry.Register<IBoardTileFactory, BoardTileFactory>();
             containerRegistry.Register<IFenInterpretationService, FenInterpretationService>();
             containerRegistry.Register<IMinimaxService, MinimaxService>();
+
+            containerRegistry.RegisterInstance<ILoggingService>(new LoggingService());
         }
     }
 }

@@ -105,11 +105,13 @@
                 <Grid Grid.Row="1" Background="#1D2125">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="522" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
                         <local:ChessBoard Grid.Column="0" HorizontalAlignment="Left" Margin="7 0 0 0" />
+
+                        <local:GameLog Grid.Column="1" Margin="27" />
                     </Grid>
                 </Grid>
             </Grid>

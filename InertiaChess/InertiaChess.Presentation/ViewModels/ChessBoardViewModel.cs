@@ -1,4 +1,5 @@
 ﻿using InertiaChess.Core.Enums;
+using InertiaChess.Logic.DataTypes;
 using InertiaChess.Logic.Services;
 using InertiaChess.Presentation.Factories;
 using InertiaChess.Presentation.ItemTypes;
@@ -102,11 +103,24 @@ namespace InertiaChess.Presentation.ViewModels
 
             this.loggingService.Log("Player pieces moved!");
 
-            await this.minimaxService.CalculateMove(this.LightweightBoardRepresentation());
+            var move = await this.minimaxService.CalculateMove(this.LightweightBoardRepresentation());
 
             this.loggingService.Log("AI piece calculated!");
 
+            this.PerformMove(move);
+
             // Perform move here. Do I need to perform any checks?
+        }
+
+        private void PerformMove(Move move)
+        {
+            var startTile = this.Tiles[move.StartX + move.StartY * 8];
+            var endTile = this.Tiles[move.EndX + move.EndY * 8];
+
+            endTile.PieceType = startTile.PieceType;
+            startTile.PieceType = PieceType.None;
+
+            this.loggingService.Log("AI piece moved!");
         }
 
         private PieceType[] LightweightBoardRepresentation()
